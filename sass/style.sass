@@ -1,0 +1,233 @@
+@import ./_variables
+@import ./_reboot
+@import ./_container
+
+
+// BLOCKS START
+
+.popup
+    display: flex
+    position: fixed
+    left: -100%
+    top: 0
+    width: 100%
+    height: 100%
+    z-index: 1
+    transition: 300ms all
+    background: #fff
+    &__content
+        padding: 170px 15px 70px 15px
+        width: 100%
+        height: 100%
+        display: flex
+        flex-direction: column
+        justify-content: flex-start
+        align-items: center
+        gap: 30px
+        overflow: auto
+        .header__menu
+            display: none
+    &__menu
+        margin: 0 0 40px 0
+    &__list
+        display: flex
+        flex-direction: column
+        align-items: center
+        gap: 40px
+    &__link
+        padding: 10px
+        font-weight: 500
+        text-transform: uppercase
+        transition: 300ms color
+        outline: none
+        &:hover, &:focus
+            color: $support-color
+    &__btns
+        display: flex
+        align-items: center
+        gap: 20px
+        .btn
+            display: block
+            width: 255px
+            height: 75px
+            text-align: center
+            color: $btn-color-text
+            background: $main-color
+            transition: 300ms all
+            outline: none
+            &:hover, &:focus
+                background: transparent
+                color: $main-color
+                border: 2px solid $main-color
+@media( max-width: 992px )
+    .popup
+        &__menu
+            margin: 0 0 30px 0
+        &__link
+            font-size: 18px
+        &__btns
+            gap: 10px
+            .btn
+                width: 245px
+                height: 65px
+                font-size: 18px
+@media( max-width: 768px )
+    .popup
+        &__content
+            .header__menu
+                display: flex
+            .header__list
+                display: flex
+                flex-direction: column
+                align-items: center
+                gap: 12px
+            .header__link
+                padding: 10px
+                font-size: 18px
+                display: block
+                text-transform: uppercase
+                font-weight: 500
+                outline: none
+                transition: 300ms color
+                &:hover, &:focus
+                    color: $support-color
+        &__menu
+            margin: 0 0 10px 0
+        &__item
+            gap: 12px
+        &__btns
+            padding: 40px 0
+            border-top: 1px solid $main-color
+            border-bottom: 1px solid $main-color
+@media( max-width: 576px )
+    .popup
+        &__content
+            padding: 150px 15px 70px 15px
+        &__btns
+            flex-direction: column
+.show        
+    left: 0
+
+// BLOCKS END
+
+
+// HEADER START
+
+.header
+    position: relative
+    z-index: 2
+    background: $bg-color
+    &__wrapper
+        padding: 40px 0
+        display: flex
+        align-items: center
+        justify-content: space-around
+        transition: 300ms padding
+    .padding-sm
+        padding: 10px 0 
+    &__logo
+        display: flex
+        align-items: center
+    .logo
+        &__link
+            display: block
+            max-height: 55px
+        &__img
+            width: 100%
+            max-height: 55px
+    &__list
+        display: flex
+        align-items: center
+        gap: 80px
+    &__link
+        padding: 10px
+        line-height: 1.75
+        transition: 300ms color
+        &:hover, &:focus
+            color: $support-color  
+    &__btn
+        display: flex
+        align-items: center
+        gap: 40px
+    .btn
+        &__card
+            display: flex
+            align-items: center
+            justify-content: center
+            width: 70px
+            height: 70px
+            border-radius: 100%
+            background: $main-color
+            transition: 300ms background
+            &:hover, &:focus
+                background: $support-color
+        &__hamburger
+            padding: 15px
+            display: block
+            background: transparent
+        .hamburger
+            &__span
+                display: block
+                position: relative
+                width: 20px
+                height: 3px
+                border-radius: 1px
+                background: $main-color
+                transition: 500ms all
+                &::after, &::before
+                    content: ''
+                    display: block
+                    width: 20px
+                    height: 3px
+                    position: absolute
+                    top: 6px
+                    left: 0
+                    background: $main-color
+                    transition: 500ms all
+                &::before
+                    top: -6px
+        .active
+            .hamburger__span
+                transform: rotate(45deg)
+                &::after
+                    opacity: 0
+                &::before
+                    transform: rotate(-90deg)
+                    top: 0
+@media ( max-width: 992px )
+    .header
+        &__wrapper
+            padding: 30px 0
+            justify-content: space-between
+        .logo
+            &__link
+                max-height: 45px
+            &__img
+                max-height: 45px
+        &__list
+            gap: 40px
+        &__link
+            font-size: 18px
+        &__btn
+            gap: 20px
+        .btn
+            &__card
+                width: 60px
+                height: 60px
+@media ( max-width: 768px )
+    .header
+        &__menu
+            display: none
+@media ( max-width: 576px )
+    .header
+        &__wrapper
+            padding: 15px 0
+        .logo
+            &__link
+                max-height: 35px 
+            &__img
+                max-height: 35px  
+        .btn
+            &__card
+                width: 50px
+                height: 50px
