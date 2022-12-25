@@ -46,19 +46,6 @@
         display: flex
         align-items: center
         gap: 20px
-        .btn
-            display: block
-            width: 255px
-            height: 75px
-            text-align: center
-            color: $btn-color-text
-            background: $main-color
-            transition: 300ms all
-            outline: none
-            &:hover, &:focus
-                background: transparent
-                color: $main-color
-                border: 2px solid $main-color
 @media( max-width: 992px )
     .popup
         &__menu
@@ -107,7 +94,37 @@
             flex-direction: column
 .show        
     left: 0
-
+.label
+    font-size: 24px
+    line-height: 2.29
+    font-weight: 600
+    color: $secondary-color
+    text-transform: uppercase
+@media ( max-width: 768px )
+    .label
+        font-size: 20px
+@media ( max-width: 576px )
+    .label
+        margin: 0 0 12px 0
+        font-size: 16px
+.btn
+    width: 265px
+    height: 85px
+    color: $btn-color-text
+    background: $main-color
+    font-weight: 600
+    text-align: center
+    transition: 300ms all
+    outline: none
+    &:hover, &:focus
+        background: transparent
+        color: $main-color
+        border: 2px solid $main-color
+@media ( max-width: 576px)
+    .btn
+        width: 235px
+        height: 75px
+        font-size: 16px
 // BLOCKS END
 
 
@@ -145,11 +162,11 @@
         transition: 300ms color
         &:hover, &:focus
             color: $support-color  
-    &__btn
+    &__btns
         display: flex
         align-items: center
         gap: 40px
-    .btn
+    .btns
         &__card
             display: flex
             align-items: center
@@ -208,9 +225,9 @@
             gap: 40px
         &__link
             font-size: 18px
-        &__btn
+        &__btns
             gap: 20px
-        .btn
+        .btns
             &__card
                 width: 60px
                 height: 60px
@@ -227,7 +244,132 @@
                 max-height: 35px 
             &__img
                 max-height: 35px  
-        .btn
+        .btns
             &__card
-                width: 50px
-                height: 50px
+                width: 40px
+                height: 40px
+            .card
+                &__img
+                    width: 16px
+                    height: 16px
+
+// HEADER END
+
+
+// PROMO START
+
+.promo
+    background: $bg-color
+    &__wrapper
+        display: flex
+        align-items: center
+    &__text-wrapper
+        flex-basis: 50%
+    &__img-wrapper
+        flex-basis: 50%
+    &__label
+        margin: 0 0 25px 0
+    &__title
+        margin: 0 0 50px 0
+        font-family: 'Playfair Display', sans-serif
+        font-size: 112px
+        line-height: 1.12
+        span
+            color: $secondary-color
+    &__subtitle
+        margin: 0 0 100px 0
+        line-height: 2.29
+        font-weight: 500
+    &__img
+        display: block
+        margin: 0 auto
+        width: 100%
+@media ( max-width: 768px )
+    .promo
+        &__wrapper
+            padding: 40px 0
+            flex-direction: column-reverse
+            gap: 40px
+        &__text-wrapper
+            display: flex
+            flex-direction: column
+            align-items: center
+        &__img
+            max-height: 500px
+        &__title
+            margin: 0 0 30px 0
+            font-size: 64px
+            text-align: center
+        &__subtitle
+            margin: 0 0 40px 0
+            font-size: 16px
+            text-align: center
+@media ( max-width: 576px )
+    .promo
+        &__wrapper
+            padding: 30px 0
+            gap: 30px
+        &__img
+            max-height: 400px
+        &__title
+            margin: 0 0 20px 0
+            font-size: 36px
+        &__subtitle
+            margin: 0 0 20px 0 
+            font-size: 14px
+            line-height: 2      
+// PROMO END    
+
+
+// PARTNERS START
+
+.partners
+    &__title
+        font-family: 'Playfair Display', san-serif
+        font-size: 60px
+        line-height: 1.33
+        font-weight: 700
+        text-align: center
+        margin: 0 0 150px 0
+    &__img-wrapper
+        display: flex
+        align-items: center
+        justify-content: center
+        flex-wrap: wrap
+        gap: 120px
+        img
+            max-height: 55px   
+.section_padding
+    padding: 170px 0
+@media( max-width: 992px )
+    .partners
+        &__title
+            font-size: 48px
+            margin: 0 0 100px 0
+        &__img-wrapper
+            gap: 100px
+            img
+                max-height: 45px
+    .section_padding
+        padding: 100px 0
+@media( max-width: 768px )
+    .partners
+        &__title
+            font-size: 36px
+            margin: 0 0 80px 0
+        &__img-wrapper
+            gap: 80px
+            img
+                max-height: 35px
+    .section_padding
+        padding: 80px 0
+@media( max-width: 576px )
+    .partners
+        &__title
+            font-size: 24px
+            margin: 0 0 60px 0
+        &__img-wrapper
+            flex-direction: column
+            gap: 50px
+    .section_padding
+        padding: 40px 0
