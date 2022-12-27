@@ -1,3 +1,5 @@
+// HAMBURGER START
+
 const headerMenuClone = document.querySelector(".header__menu").cloneNode(1),
     headerWrapper = document.querySelector(".header__wrapper"),
     hamburger = document.querySelector(".hamburger"),
@@ -7,8 +9,38 @@ const headerMenuClone = document.querySelector(".header__menu").cloneNode(1),
 
 hamburger.addEventListener("click", () =>{
     hamburger.classList.toggle("active");
+    console.log(hamburger);
     popup.classList.toggle("show");
     body.classList.toggle("noscroll");
     headerWrapper.classList.toggle("padding-sm");
     popupContent.appendChild(headerMenuClone);
 })
+
+// HAMBURGER END
+
+// 
+
+    let arrayBtns = [...document.querySelectorAll(".reciepes__btns .btns__btn")];
+    let arrayWrappers = [...document.querySelectorAll(".reciepes__items-wrapper")];
+
+    arrayBtns.forEach(elem =>{
+        elem.addEventListener("click", (e) =>{
+            const indexBtn = arrayBtns.indexOf(e.target);
+            const indexWrapper = arrayBtns.indexOf(-1) + indexBtn + 1;
+            let currentWrapper = arrayWrappers[`${indexWrapper}`];
+            arrayWrappers.forEach(elem =>{
+                if(!elem.classList.contains("hide")){
+                    elem.classList.add("hide");
+                }
+            })
+            currentWrapper.classList.remove("hide");
+            arrayBtns.forEach(elem =>{
+                if(elem.classList.contains("active")){
+                    elem.classList.remove("active");
+                }
+            })
+            elem.classList.add("active");
+        })
+    })
+
+    
