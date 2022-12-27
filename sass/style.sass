@@ -194,6 +194,7 @@
     .btns
         &__card
             display: flex
+            position: relative
             align-items: center
             justify-content: center
             width: 70px
@@ -203,6 +204,20 @@
             transition: 300ms background
             &:hover, &:focus
                 background: $support-color
+        .card
+            &__counter
+                display: block
+                position: absolute
+                padding: 3px
+                top: 0
+                left: 45px
+                width: 28px
+                height: 28px
+                border-radius: 100%
+                text-align: center
+                font-size: 18px
+                color: $main-color
+                background: $secondary-color
         &__hamburger
             padding: 15px
             display: block
@@ -256,6 +271,12 @@
             &__card
                 width: 60px
                 height: 60px
+            .card
+                &__counter
+                    left: 38px
+                    width: 25px
+                    height: 25px
+                    font-size: 16px
 @media ( max-width: 768px )
     .header
         &__menu
@@ -274,9 +295,16 @@
                 width: 40px
                 height: 40px
             .card
+                &__counter
+                    left: 24px
+                    font-size: 12px
+                    padding: 2px
+                    width: 18px
+                    height: 18px
                 &__img
                     width: 16px
                     height: 16px
+
 
 // HEADER END
 

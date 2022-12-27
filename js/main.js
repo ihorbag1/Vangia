@@ -9,7 +9,6 @@ const headerMenuClone = document.querySelector(".header__menu").cloneNode(1),
 
 hamburger.addEventListener("click", () =>{
     hamburger.classList.toggle("active");
-    console.log(hamburger);
     popup.classList.toggle("show");
     body.classList.toggle("noscroll");
     headerWrapper.classList.toggle("padding-sm");
@@ -42,5 +41,24 @@ hamburger.addEventListener("click", () =>{
             elem.classList.add("active");
         })
     })
+
+
+
+const 
+    reciepesBtns = document.querySelectorAll(".reciepes__items-wrapper .btn"),
+    cardCounter = document.querySelector(".card__counter");
+let
+    counter = 0;
+
+    reciepesBtns.forEach(elem =>{
+        elem.addEventListener("click", () =>{
+            counter++;
+            cardCounter.innerHTML = counter;
+            if(counter > 9){
+                cardCounter.innerHTML = '9+';
+            }
+        })
+    })
+
 
     
