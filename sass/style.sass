@@ -2,7 +2,17 @@
 @import ./_reboot
 @import ./_container
 
-
+// MIXINS
+@mixin adaptive-font-promo-title()
+    font-size: calc($minFontPromoTitle + $difMaxMinFontPromoTitle * ((100vw - $minRes) / $difMaxMinRes))     
+@mixin adaptive-font-subtitle()
+    font-size: calc($minFontSubtitle + $difMaxMinFontSubtitle * ((100vw - $minRes) / $difMaxMinRes))
+@mixin adaptive-font-title()
+    font-size: calc($minFontTitle + $difMaxMinFontTitle * ((100vw - $minRes) / $difMaxMinRes))     
+@mixin adaptive-section-img-mobile()
+    max-height: calc($minHeightImgMob + $difMaxMinHeightImgMob* ((100vw - $minRes) / $difMaxMinRes))  
+@mixin adaptive-section-desc()
+    max-width: calc($minWidthDesc + $difMaxMinWidthDesc* ((100vw - $minRes) / $difMaxMinRes))  
 // BLOCKS START
 
 .popup
@@ -127,20 +137,11 @@
         font-size: 16px
 .title_sm
     font-family: 'Playfair Display', san-serif
-    font-size: 60px
+    @include adaptive-font-title()
     line-height: 1.33
     font-weight: 700
     text-align: center
     text-transform: capitalize
-@media ( max-width: 992px )
-   .title_sm
-        font-size: 48px
-@media ( max-width: 768px )
-    .title_sm
-        font-size: 36px
-@media ( max-width: 576px )
-    .title_sm
-        font-size: 24px
 .section_padding
     padding: 125px 0
 @media ( max-width: 992px )
@@ -149,7 +150,17 @@
 @media ( max-width: 768px )
     .section_padding
         padding: 40px 0
-
+.subtitle
+    @include adaptive-font-subtitle()
+    line-height: 2.05
+.section-img
+    display: none
+    @media( max-width: 992px )
+        @include adaptive-section-img-mobile()
+.section-desc
+    @include adaptive-section-desc()
+    @media ( max-width: 992px )
+        display: none
 // BLOCKS END
 
 
@@ -216,6 +227,7 @@
                 border-radius: 100%
                 text-align: center
                 font-size: 18px
+                font-weight: 600
                 color: $main-color
                 background: $secondary-color
         &__hamburger
@@ -305,7 +317,6 @@
                     width: 16px
                     height: 16px
 
-
 // HEADER END
 
 
@@ -317,16 +328,12 @@
         display: flex
         align-items: center
         padding: 40px 0
-    &__text-wrapper
-        flex-basis: 50%
-    &__img-wrapper
-        flex-basis: 50%
     &__label
         margin: 0 0 25px 0
     &__title
         margin: 0 0 50px 0
         font-family: 'Playfair Display', sans-serif
-        font-size: 112px
+        @include adaptive-font-promo-title()
         line-height: 1.12
         span
             color: $secondary-color
@@ -340,24 +347,9 @@
         width: 100%
 @media ( max-width: 1390px )
     .promo
-        &__img-wrapper
-            flex-basis: 45%
-        &__text-wrapper
-            flex-basis: 55%
-        &__title
-            font-size: 84px
         &__subtitle
             margin: 0 0 60px 0
-            font-size: 18px
 @media ( max-width: 992px )
-    .promo
-        &__subtitle
-            margin: 0 0 50px 0
-            font-size: 16px
-        &__title
-            margin: 0 0 30px 0
-            font-size: 64px
-@media ( max-width: 768px )
     .promo
         &__wrapper
             flex-direction: column-reverse
@@ -366,27 +358,25 @@
             display: flex
             flex-direction: column
             align-items: center
-        &__img
-            max-height: 500px
-        &__title
+        &__subtitle
+            margin: 0 0 50px 0
             text-align: center
+        &__title
+            margin: 0 0 30px 0
+            text-align: center
+@media ( max-width: 768px )
+    .promo
         &__subtitle
             margin: 0 0 40px 0
-            text-align: center
 @media ( max-width: 576px )
     .promo
         &__wrapper
             padding: 30px 0
             gap: 30px
-        &__img
-            max-height: 400px
         &__title
             margin: 0 0 20px 0
-            font-size: 36px
         &__subtitle
             margin: 0 0 20px 0 
-            font-size: 14px
-            line-height: 2      
 
 // PROMO END    
 
@@ -523,20 +513,15 @@
         align-items: center
         justify-content: space-between
         gap: 20px
-    &__img-wrapper
-        flex-basis: 60%
     &__text-wrapper
         display: flex
         flex-direction: column
-        flex-basis: 40%
     &__label
         margin: 0 0 10px 0
     &__title
         margin: 0 0 50px 0
         text-align: left
     &__subtitle
-        font-size: 22px
-        line-height: 2.05
         margin: 0 0 70px 0
     &__img 
         display: block
@@ -545,36 +530,22 @@
 @media ( max-width: 992px )
     .solution
         &__wrapper
-            align-items: flex-start
-        &__img-wrapper
-            flex-basis: 48%
+            flex-direction: column-reverse
+            justify-content: center
         &__text-wrapper
-            flex-basis: 52%
+            align-items: center
         &__subtitle
-            font-size: 20px
+            text-align: center
             margin: 0 0 50px 0
         &__title
+            text-align: center
             margin: 0 0 30px 0
-@media ( max-width: 800px )
+@media ( max-width: 768px )
     .solution
-        &__wrapper
-            flex-direction: column-reverse
-            align-items: center
-        &__img-wrapper
-            flex-basis: 0
-        &__text-wrapper
-            align-items: center
-            flex-basis: 0
         &__subtitle
             margin: 0 0 30px 0
-            font-size: 16px
-            text-align: center
         &__title
             margin: 0 0 30px 0
-            text-align: center
-        &__img
-            max-height: 500px
-@media ( max-width: 576px )
 
 // SOLUTION END
 
@@ -704,3 +675,88 @@
         .btns
             &__btn
                 font-size: 16px  
+
+// RECIEPES END
+
+
+// SKIN-ROUTINE START        
+
+.skin-routine
+    background: $bg-color
+    &__wrapper
+        display: flex
+        align-items: center
+        justify-content: space-between
+        gap: 100px
+    &__text-wrapper
+        display: flex
+        flex-direction: column
+        width: 100%
+    &__img
+        display: block
+        margin: 0 auto
+        width: 100%
+    &__title
+        margin: 0 0 50px 0
+        min-width: 650px
+        text-align: left
+    &__subtitle
+        margin: 0 0 100px 0
+    &__group-imgs
+        display: flex
+        align-items: center
+        justify-content: space-between
+        margin: -17% 0 0 0
+    .group-imgs
+        &__img
+            display: block
+            margin: 0 auto
+            max-width: 30%
+            width: 100%
+            border: 4px solid $btn-color-text
+@media ( max-width: 1366px)
+    .skin-routine
+        &__wrapper
+            gap: 40px
+        &__title
+            min-width: 635px
+@media ( max-width: 1299px)
+    .skin-routine
+        &__wrapper
+            gap: 30px
+        &__img-wrapper
+            flex-basis: 50%
+        &__text-wrapper
+            flex-basis: 50%
+        &__desc
+            margin: 0 0 60px 0
+@media ( max-width: 992px )
+    .skin-routine
+        &__wrapper
+            flex-direction: column
+            gap: 40px
+        &__text-wrapper
+            align-items: center
+            justify-content: center
+        &__subtitle
+            margin: 0 0 60px 0
+            text-align: center
+        &__title
+            margin: 0 0 30px 0
+            max-width: none
+            text-align: center
+        .group-imgs
+            &__img
+                max-width: 144px
+@media ( max-width: 768px )
+    .skin-routine
+        &__wrapper
+            gap: 20px
+        &__group-imgs
+            display: none
+        &__subtitle
+            margin: 0 0 40px 0
+        &__title
+            margin: 0 0 20px 0
+
+
